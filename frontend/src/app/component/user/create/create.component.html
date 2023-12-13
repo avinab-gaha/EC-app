@@ -1,0 +1,28 @@
+<div class="row  mt-4">
+  <div class="col-sm-8 offset-sm-2">
+    <h1 class="display-3">Add a contact</h1>
+    <form [formGroup]="userForm" (ngSubmit)="createUserData()">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input id="name" type="text" class="form-control" formControlName="name" />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input id="email" type="text" class="form-control" formControlName="email" />
+        <div *ngIf="errorMessage">{{ showErrorMessage(email) }}</div>
+      </div>
+
+      <div class="form-group mb-4">
+        <label for="password">Password:</label>
+        <input id="password" type="password" class="form-control" formControlName="password" />
+        <div *ngIf="errorMessage">{{ showErrorMessage(password) }}</div>
+      </div>
+
+      <button type="submit" class="btn btn-warning" [disabled]="!userForm.valid">Add contact</button>
+    </form>
+    <br>
+    <a type="submit" class="btn btn-dark" (click)="backtoUsers()">Back</a>
+  </div>
+</div>
+<router-outlet></router-outlet>
