@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 mt-5 mb-5">
+      <a (click)="goToUserData()" class="btn btn-secondary mb-4">Add User</a>
+      <table *ngIf="users" class="">
+        <thead>
+          <tr>
+            <th class="table-success">Name</th>
+            <th class="table-success">Email</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tr *ngFor="let user of users">
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>
+            <a class="btn btn-primary" (click)="editPersonbyId(user.id,user)">Edit</a>
+          </td>
+          <td>
+            <a class="btn btn-warning" (click)="viewPersonbyId(user.id)">View</a>
+          </td>
+          <td>
+            <button class="btn btn-danger" type="submit" (click)="deletePersonId(user.id)">Delete</button>
+          </td>
+        </tr>
+      </table><!--table-->
+    </div><!--col-sm-12-->
+  </div><!--row-->
+</div><!--container-->
+
+<router-outlet></router-outlet>
